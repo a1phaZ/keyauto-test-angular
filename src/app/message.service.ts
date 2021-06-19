@@ -10,8 +10,7 @@ import { Message } from './message';
 })
 export class MessageService {
 
-  private messagesUrl = 'http://localhost:2114/messages';
-  private commentsUrl = 'http://localhost:2114/comments';
+  private messagesUrl = 'https://alpha-test-api.herokuapp.com/messages';
   httpOptions = {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' })
   };
@@ -52,7 +51,10 @@ export class MessageService {
   
   createMessage(message: Message): Observable<Message> {
     return this.http.post<Message>(this.messagesUrl, message, this.httpOptions).pipe(
-      tap((newMessage: Message) => console.log('created new message', newMessage)),
+      tap((newMessage: Message) => {
+        this.setMessage(newMessage);
+        console.log('created new message', newMessage);
+      }),
       catchError(this.handleError<Message>('createMessage'))
     )
   }
