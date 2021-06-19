@@ -52,7 +52,6 @@ export class MessageService {
   createMessage(message: Message): Observable<Message> {
     return this.http.post<Message>(this.messagesUrl, message, this.httpOptions).pipe(
       tap((newMessage: Message) => {
-        this.setMessage(newMessage);
         console.log('created new message', newMessage);
       }),
       catchError(this.handleError<Message>('createMessage'))

@@ -1,7 +1,7 @@
 {
   "name": "keyauto",
   "version": "0.0.0",
-  "homepage": "https://github.com/a1phaZ/keyauto-test-angular",
+  "homepage": "./",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
