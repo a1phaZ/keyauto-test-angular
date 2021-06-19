@@ -1,0 +1,12 @@
+<form #messageForm="ngForm" (ngSubmit)='onSubmit(form.author, form.text)'>
+  <div class="mb-3">
+    <label for='author' class="form-label">Автор</label>
+    <input id='author' class="form-control" [(ngModel)]="form.author" name="author" required/>
+  </div>
+  <div class="mb-3">
+    <label for='text' class="form-label">Текст</label>
+    <input id='text' class="form-control" [(ngModel)]="form.text" name="text" required/>
+  </div>
+  <button type="submit" class="btn btn-primary " [disabled]="!messageForm.form.valid">Отправить</button>
+  <button type="button" class="btn btn-secondary ml-3" (click)='messageForm.reset()'>Отчистить</button>
+</form>
